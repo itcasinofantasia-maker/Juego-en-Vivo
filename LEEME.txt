@@ -1,0 +1,26 @@
+JACKPOT ESCALERA REAL - FANTASIA CASINO (Android TV)
+
+COMPILAR EL APK
+1. Instala Android Studio (Koala o superior).
+2. File > Open > selecciona esta carpeta (FantasiaJackpotTV). Espera a que termine el Gradle Sync.
+3. Build > Build Bundle(s) / APK(s) > Build APK(s).
+   El archivo queda en app/build/outputs/apk/debug/app-debug.apk
+4. Instalar en el TV:  adb connect IP_DEL_TV  y luego  adb install app-debug.apk
+   (o pásalo con una USB / app "Send Files to TV").
+
+USO
+- Pantalla de visualización: jackpot + tabla de premios calculados en vivo.
+- Botón "Administrar" (esquina inferior derecha, con el control remoto: flecha abajo/derecha + OK).
+- PIN inicial: 1234 (cámbialo dentro del panel). Se cierra solo tras 2 minutos sin actividad.
+- Editar monto: botón "Editar monto" habilita el campo; luego "Guardar monto".
+- Cargar seguro suma al jackpot. "Calcular premio" + "Confirmar" descuenta el premio y muestra la pantalla de ganador.
+- El monto y el PIN se guardan en el TV aunque se apague.
+
+Archivos de la pantalla: app/src/main/assets/www/index.html (logo.png, cartas.png)
+
+COMPILAR SIN ANDROID STUDIO (GitHub Actions)
+1. Crea una cuenta en github.com y un repositorio nuevo (puede ser privado).
+2. Sube TODO el contenido de esta carpeta (incluida la carpeta oculta .github) a la rama main.
+3. Entra a la pestaña "Actions" > "Compilar APK". Si no arrancó solo, pulsa "Run workflow".
+4. Al terminar (unos 3-5 minutos), abre la ejecución y descarga "Jackpot-Fantasia-APK" (viene dentro de un zip) en la sección Artifacts.
+5. Instala app-debug.apk en el TV como se indica arriba.
